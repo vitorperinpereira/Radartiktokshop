@@ -38,9 +38,13 @@ Thumbs.db
 *.swp
 
 # AIOX Local (AIOX)
+.aiox/
 .aiox-core/local/
 .claude/settings.local.json
 .aiox/install-log.txt
+
+# Local runtime cache
+.cache/
 
 # Python app local files
 .streamlit/secrets.toml

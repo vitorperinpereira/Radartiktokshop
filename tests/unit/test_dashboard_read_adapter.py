@@ -93,21 +93,21 @@ def test_load_rankings_reads_persisted_scores_and_supports_dashboard_filters() -
 
     dataframe = ranking_items_to_dataframe(ranking_result.data.items)
     assert list(dataframe.columns) == [
-        "Product",
-        "Product ID",
-        "Brand",
-        "Category",
-        "Classification",
-        "Opportunity Score",
-        "Trend Score",
-        "Viral Score",
-        "Accessibility Score",
-        "Saturation Risk",
-        "Saturation Penalty",
-        "Revenue Estimate",
-        "Summary",
+        "Produto",
+        "ID do Produto",
+        "Marca",
+        "Categoria",
+        "Classificação",
+        "Score de Oportunidade",
+        "Score de Tendência",
+        "Score Viral",
+        "Score de Acessibilidade",
+        "Risco de Saturação",
+        "Penalidade de Saturação",
+        "Estimativa de Receita",
+        "Resumo",
     ]
-    assert dataframe.iloc[0]["Product ID"] == ranking_result.data.items[0].product_id
+    assert dataframe.iloc[0]["ID do Produto"] == ranking_result.data.items[0].product_id
     assert ranking_result.data.items[0].product_id in product_option_label(
         ranking_result.data.items[0]
     )

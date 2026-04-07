@@ -416,7 +416,11 @@ def test_pipeline_history_page_reads_backend_history(
 
     _reload_page("apps.dashboard.pages.3_pipeline_history")
 
-    assert ("success", ("Histórico de pipeline carregado com sucesso.",), {}) in fake_streamlit.calls
+    assert (
+        "success",
+        ("Histórico de pipeline carregado com sucesso.",),
+        {},
+    ) in fake_streamlit.calls
     dataframe_calls = [call for call in fake_streamlit.calls if call[0] == "dataframe"]
     assert dataframe_calls
     dataframe = dataframe_calls[0][1][0]
