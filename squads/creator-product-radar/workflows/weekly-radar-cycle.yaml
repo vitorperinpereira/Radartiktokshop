@@ -1,0 +1,91 @@
+workflow:
+  id: weekly-radar-cycle
+  name: Weekly Radar Cycle
+  version: "1.0"
+  description: >-
+    Operating workflow for the weekly ingestion, evidence review, score
+    calibration, and report publication cycle.
+  type: operations
+
+  metadata:
+    elicit: false
+    confirmation_required: false
+
+  phases:
+    - phase_1: Source readiness
+    - phase_2: Evidence and scoring review
+    - phase_3: Creator output
+
+  sequence:
+    - phase: 1
+      agent: various
+      action: phase_marker
+      name: Source readiness
+      description: "Verify that the week can run with current sources or fallbacks"
+
+    - id: qualify-sources
+      agent: source-governance-engineer
+      creates: source-readiness.md
+      duration_estimate: "10-20 min"
+      notes: "Check source freshness, auth constraints, and fallback readiness."
+
+    - id: normalize-catalog
+      agent: catalog-normalization-engineer
+      creates: normalized-catalog.md
+      requires: source-readiness.md
+      duration_estimate: "15-30 min"
+      notes: "Normalize and deduplicate the weekly catalog input."
+
+    - phase: 2
+      agent: various
+      action: phase_marker
+      name: Evidence and scoring review
+      description: "Review evidence quality before publishing ranked output"
+
+    - id: review-signals
+      agent: commerce-signal-analyst
+      creates: signal-assessment.md
+      requires: normalized-catalog.md
+      duration_estimate: "15-30 min"
+      notes: "Check signal completeness, saturation flags, and creator accessibility implications."
+
+    - id: calibrate-scores
+      agent: signal-scoring-architect
+      creates: score-assessment.md
+      requires: signal-assessment.md
+      duration_estimate: "15-30 min"
+      notes: "Validate that the current weights and score bands still reflect the weekly evidence."
+
+    - phase: 3
+      agent: various
+      action: phase_marker
+      name: Creator output
+      description: "Shape and review the weekly creator-facing output"
+
+    - id: draft-report
+      agent: creator-content-strategist
+      creates: weekly-creator-report.md
+      requires: score-assessment.md
+      duration_estimate: "20-30 min"
+      notes: "Produce the report narrative, creator hooks, and dashboard-ready insights."
+
+    - id: qa-report-review
+      agent: qa
+      validates: weekly-creator-report.md
+      requires: weekly-creator-report.md
+      duration_estimate: "15-20 min"
+      notes: "Check output consistency, missing fields, and risky copy before publishing."
+
+  handoff_prompts:
+    source_governance_to_catalog_normalization: "Use the approved source state to normalize this week's catalog."
+    catalog_normalization_to_commerce_signal_analyst: "Use the normalized catalog to assess evidence and risk flags."
+    commerce_signal_analyst_to_signal_scoring_architect: "Turn the signal review into a calibrated weekly score assessment."
+    signal_scoring_architect_to_creator_content_strategist: "Use the calibrated score output to draft the weekly creator report."
+
+  flow_diagram: |
+    graph TD
+      A[Source Readiness] --> B[Normalized Catalog]
+      B --> C[Signal Assessment]
+      C --> D[Score Assessment]
+      D --> E[Weekly Creator Report]
+      E --> F[QA Review]

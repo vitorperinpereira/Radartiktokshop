@@ -1,0 +1,73 @@
+name: branding
+version: 1.0.0
+short-title: Branding & Design System Squad
+description: Squad completo para formalizar identidade visual, arquitetura de tokens e component library do Agente Mint. Transforma a linguagem editorial existente em design system operacional com Atomic Design.
+author: Agente Mint
+license: MIT
+slashPrefix: branding
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+
+requires:
+  node: ">=20.0.0"
+  aiox: ">=2.1.0"
+
+tags:
+  - branding
+  - design-system
+  - tokens
+  - atomic-design
+  - accessibility
+  - visual-identity
+  - components
+
+components:
+  tasks:
+    # Discovery
+    - audit-current-identity.md
+    - define-brand-principles.md
+    # Foundation
+    - architect-token-system.md
+    - define-color-system.md
+    - define-type-scale.md
+    - define-spacing-and-grid.md
+    - define-motion-tokens.md
+    - define-ux-writing-guide.md
+    # Build
+    - build-design-tokens-file.md
+    - build-atomic-components.md
+    - build-molecule-components.md
+    - build-organism-components.md
+    # QA
+    - audit-brand-consistency.md
+    - validate-design-system.md
+  agents:
+    - brand-strategist.md
+    - design-system-architect.md
+    - color-specialist.md
+    - typography-lead.md
+    - visual-designer.md
+    - motion-designer.md
+    - component-builder.md
+    - content-designer.md
+    - brand-qa.md
+  workflows: []
+  checklists:
+    - brand-consistency-checklist.md
+  templates:
+    - component-spec-template.md
+  tools: []
+  scripts: []
+
+config:
+  extends: extend
+  coding-standards: ../../docs/framework/coding-standards.md
+  tech-stack: ../../docs/framework/tech-stack.md
+  source-tree: ../../docs/framework/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []

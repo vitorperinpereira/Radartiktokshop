@@ -1,0 +1,147 @@
+workflow:
+  id: creator-product-radar-mvp
+  name: Creator Product Radar MVP
+  version: "1.0"
+  description: >-
+    Domain workflow that turns the TikTok Shop affiliate product brief into
+    domain artifacts, delivery-ready implementation guidance, and a review loop.
+  type: domain-setup
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+
+  phases:
+    - phase_1: Product framing
+    - phase_2: Domain design
+    - phase_3: Delivery loop
+
+  sequence:
+    - phase: 1
+      agent: various
+      action: phase_marker
+      name: Product framing
+      description: "Create the core product artifacts from the initial brief"
+
+    - id: analyst-project-brief
+      agent: analyst
+      creates: project-brief.md
+      duration_estimate: "30-45 min"
+      notes: "Translate the original prompt into a concise project brief and explicit business outcomes."
+
+    - id: pm-prd
+      agent: pm
+      creates: prd.md
+      requires: project-brief.md
+      duration_estimate: "30-60 min"
+      notes: "Expand the brief into product requirements, acceptance criteria, and MVP scope."
+
+    - id: architect-solution
+      agent: architect
+      creates: architecture.md
+      requires: prd.md
+      duration_estimate: "45-60 min"
+      notes: "Define the baseline FastAPI, LangGraph, persistence, and dashboard architecture."
+
+    - phase: 2
+      agent: various
+      action: phase_marker
+      name: Domain design
+      description: "Add creator-commerce specific rules before implementation starts"
+
+    - id: signal-catalog
+      agent: commerce-signal-analyst
+      creates: signal-catalog.md
+      requires: prd.md
+      duration_estimate: "20-40 min"
+      notes: "Define measurable trend, accessibility, saturation, and monetization evidence."
+
+    - id: source-governance
+      agent: source-governance-engineer
+      creates: source-governance.md
+      requires: architecture.md
+      duration_estimate: "20-40 min"
+      notes: "Approve source strategy, adapter boundaries, and degraded-mode assumptions."
+
+    - id: catalog-ontology
+      agent: catalog-normalization-engineer
+      creates: ontology-spec.md
+      requires: source-governance.md
+      duration_estimate: "20-40 min"
+      notes: "Lock canonical product identity, taxonomy, and deduplication behavior."
+
+    - id: score-model
+      agent: signal-scoring-architect
+      creates: scoring-model.md
+      requires: signal-catalog.md
+      duration_estimate: "20-40 min"
+      notes: "Define the Creator Opportunity Score, explanation contract, and score bands."
+
+    - id: report-brief
+      agent: creator-content-strategist
+      creates: weekly-report-brief.md
+      requires: scoring-model.md
+      duration_estimate: "20-30 min"
+      notes: "Turn ranking outputs into a creator-usable weekly report structure."
+
+    - id: po-validate-domain-artifacts
+      agent: po
+      creates: all_domain_artifacts
+      validates: all_domain_artifacts
+      requires: weekly-report-brief.md
+      duration_estimate: "15-30 min"
+      notes: "Validate the brief, PRD, architecture, score model, and report structure as one coherent set."
+
+    - phase: 3
+      agent: various
+      action: phase_marker
+      name: Delivery loop
+      description: "Convert approved domain artifacts into implementation-ready work"
+
+    - id: sm-create-story
+      agent: sm
+      creates: story.md
+      requires: all_domain_artifacts
+      duration_estimate: "15-30 min"
+      notes: "Slice the MVP into implementation-ready stories."
+
+    - id: dev-implement-story
+      agent: dev
+      creates: implementation_files
+      requires: story.md
+      duration_estimate: "1-4 hours"
+      notes: "Implement the current story using the approved domain artifacts."
+
+    - id: qa-review-story
+      agent: qa
+      validates: implementation_files
+      requires: implementation_files
+      duration_estimate: "20-40 min"
+      notes: "Review correctness, regressions, and missing tests before the next story."
+
+    - id: repeat-story-cycle
+      agent: various
+      action: repeat_cycle
+      target_steps: [sm-create-story, dev-implement-story, qa-review-story]
+      condition: stories_remaining
+
+  handoff_prompts:
+    analyst_to_pm: "Use the project brief to write a delivery-ready PRD with MVP boundaries."
+    pm_to_architect: "Use the PRD to define a pragmatic FastAPI and LangGraph architecture."
+    architect_to_source_governance_engineer: "Use the architecture to approve data-source boundaries and fallback paths."
+    commerce_signal_analyst_to_signal_scoring_architect: "Convert the signal catalog into a weighted, explainable scoring model."
+    signal_scoring_architect_to_creator_content_strategist: "Turn the score breakdown into a weekly report structure creators can act on."
+
+  flow_diagram: |
+    graph TD
+      A[Project Brief] --> B[PRD]
+      B --> C[Architecture]
+      B --> D[Signal Catalog]
+      C --> E[Source Governance]
+      E --> F[Ontology Spec]
+      D --> G[Scoring Model]
+      G --> H[Weekly Report Brief]
+      H --> I[Validated Domain Artifacts]
+      I --> J[Story]
+      J --> K[Implementation]
+      K --> L[QA Review]

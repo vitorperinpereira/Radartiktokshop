@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minha Garagem - Estúdio do Criador</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF0050",
+                        "background-light": "#F9F9F6",
+                        "background-dark": "#121212",
+                        "surface": "#FFFFFF",
+                        "text-main": "#121212",
+                        "text-muted": "#8A8A8E",
+                        "accent": "#00F2FE",
+                        "status-planning": "#E5E7EB",
+                        "status-recording": "#FEF08A",
+                        "status-published": "#BBF7D0",
+                        "score-high": "#00E676",
+                        "score-medium": "#FFD54F",
+                    },
+                    fontFamily: {
+                        "display": ["'Bricolage Grotesque'", "sans-serif"],
+                        "body": ["'DM Sans'", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "md": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 24px rgba(0,0,0,0.04)",
+                        "hover": "0 8px 32px rgba(0,0,0,0.08)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Base styles */
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #F9F9F6;
+            color: #121212;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        /* Sparkline Animation */
+        .sparkline-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .group:hover .sparkline-path {
+            stroke-dashoffset: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D1D5DB;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white min-h-screen flex antialiased">
+<!-- Sidebar Navigation -->
+<nav class="w-64 bg-surface dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 hidden md:flex flex-col flex-shrink-0 fixed h-full z-10">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-display font-bold text-lg">
+                    EC
+                </div>
+<div>
+<h1 class="font-display font-bold text-lg leading-tight tracking-tight">Estúdio do Criador</h1>
+<p class="text-xs text-text-muted font-medium">Afiliados TikTok</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-main dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">radar</span>
+<span class="font-medium text-sm">Radar Semanal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 transition-colors font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">garage</span>
+<span class="text-sm">Minha Garagem</span>
+</a>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-zinc-100 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover border border-zinc-200" data-alt="Portrait of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV2TKiuCwVLUpqpV9X8eybzATNv2YHnX5XRNjAhlMKjUJGakjYpMWUHgS04y_4yMM3tT401Q380j25MtIBTlx4w62EmPl5N6QrLWBnJCmp2Ssm91AoH1HwoR6P2wDdMwjcrhF_NRvAI5GVIoU6P6cZg282XRLQ7BbpDoXlDiUiQv-r-cfT8C-LWjeJeKPMrGXd-wIjIYbUSJ5oywhUfMrbXhR8xs2WW8bcbPy-yvcr3ZB99nC72VwRqHoh03Al33nadG7I8lRZxy4M"/>
+<div>
+<p class="text-sm font-bold">Criador Pro</p>
+<p class="text-xs text-text-muted">Plano Basic</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Mobile Header -->
+<header class="md:hidden bg-surface dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 px-4 py-4 flex items-center justify-between sticky top-0 z-20">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-display font-bold">EC</div>
+<h1 class="font-display font-bold text-lg">Estúdio do Criador</h1>
+</div>
+<button class="p-2 text-text-main dark:text-white rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<div class="p-6 md:p-10 max-w-7xl mx-auto w-full flex-1">
+<!-- Page Header -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-2">Minha Garagem</h2>
+<p class="text-text-muted text-sm md:text-base">Acompanhe seus produtos salvos e status de criação.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg text-sm font-medium hover:border-zinc-300 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filtrar Status
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-display font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Adicionar Produto
+                    </button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<article class="group bg-surface dark:bg-zinc-900 rounded-lg shadow-soft hover:shadow-hover border border-transparent hover:border-primary/20 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer transform hover:-translate-y-1">
+<div class="relative aspect-square overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+<img alt="Ring Light Pro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Professional LED Ring Light on stand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOLR9RwnDGTWrtOIMIAfA-4goP8tyvZUA3JuBqrO7NZF_vyiqfW7D_7SvPQ2HNouXzsAFozjm4tccVliBYwICNjtPr07s-CnsiEmjq0SMEmOiD07lZUSwmDNoABwYt9d5CZAKTcxrVRKu-WsqEosBcOAb3DCDocTwqphLJR33ALFs8U8ba9dqwGqT0U691MvfeyqJ6vMc4Biw816LXqk64TFXQn_HvnL7k_SlLO7r2gJJhevpofnItf7Qj6-Q4fyGiejKExmvaBW2L"/>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-zinc-100">
+<span class="w-2 h-2 rounded-full bg-score-high animate-pulse"></span>
+<span class="font-display font-bold text-sm">92</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-base leading-tight line-clamp-2">Ring Light Profissional 18" com Tripé</h3>
+<span class="material-symbols-outlined text-score-high text-[20px] bg-score-high/10 rounded-full p-1 ml-2 flex-shrink-0">trending_up</span>
+</div>
+<p class="text-xs text-text-muted mb-4">Acessórios para Câmera</p>
+<div class="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-3">
+<select class="w-[120px] text-xs font-medium py-1.5 px-2 rounded-md border-zinc-200 bg-status-planning/50 text-zinc-700 focus:ring-primary focus:border-primary cursor-pointer" onclick="event.stopPropagation()">
+<option selected="" value="planejando">Planejando</option>
+<option value="gravando">Gravando</option>
+<option value="publicado">Publicado</option>
+</select>
+<div class="w-16 h-6">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 64 24">
+<path class="sparkline-path" d="M0,20 L10,15 L20,18 L30,10 L40,12 L50,5 L64,2" fill="none" stroke="#00E676" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group bg-surface dark:bg-zinc-900 rounded-lg shadow-soft hover:shadow-hover border border-transparent hover:border-primary/20 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer transform hover:-translate-y-1">
+<div class="relative aspect-square overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+<img alt="Mini Microfone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Small wireless lavalier microphone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq1G8zVvEVUjWmLCErXAG0iN8yWzUqb1lBRIpv2lJRO1BuJpJhPeeISbbF_y4iZUDC8bhNK9umMEyCswxIlJbuMHCrAH8Mm1FtA4Yu0vQXop77NCG2M83RiuCJisW08Dj4NLJ750mRx-fVwYibgVoqcRMCsGMtO7Y3ITfUlPDYCKFYYYUenXIAmnyYoxb9P_1D0VT0dV8KCCVGoVUWebuMIcGDVHdypsGFbN3gd_k0SE0qjxcbMsntKdyNh3raFVeS7cWz2NftJel_"/>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-zinc-100">
+<span class="w-2 h-2 rounded-full bg-score-high animate-pulse"></span>
+<span class="font-display font-bold text-sm">88</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-base leading-tight line-clamp-2">Microfone Lapela Sem Fio Duplo</h3>
+<span class="material-symbols-outlined text-score-high text-[20px] bg-score-high/10 rounded-full p-1 ml-2 flex-shrink-0">trending_up</span>
+</div>
+<p class="text-xs text-text-muted mb-4">Áudio Profissional</p>
+<div class="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-3">
+<select class="w-[120px] text-xs font-medium py-1.5 px-2 rounded-md border-transparent bg-status-recording text-zinc-800 focus:ring-primary focus:border-primary cursor-pointer" onclick="event.stopPropagation()">
+<option value="planejando">Planejando</option>
+<option selected="" value="gravando">Gravando</option>
+<option value="publicado">Publicado</option>
+</select>
+<div class="w-16 h-6">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 64 24">
+<path class="sparkline-path" d="M0,15 L15,18 L30,12 L45,8 L64,4" fill="none" stroke="#00E676" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group bg-surface dark:bg-zinc-900 rounded-lg shadow-soft hover:shadow-hover border border-transparent hover:border-primary/20 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer transform hover:-translate-y-1">
+<div class="relative aspect-square overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+<img alt="Sneakers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Red and black athletic running shoe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb5wPNKJHviN_F_mVQIamp0OicJ7eth6tZvWbBMqtETBi13PGhffEb9xm8ZJZRNviR0WK3x2AAOHOt7ZEaQvUQsUVKQoSJiE1IBoL2mSRi6FXItudIi4JPwayK7nSYCLot0pLqAi9Eu1BCZbHPpKoWlbuJNHrmetsSf_STdVAs-34r604teGSVddD2qiH7DwykdPaedEGvbEKId-mNZsqX7IM8Rdqg7vb8OAWanzkWul-fyO_uVQ09VYfHrkImsnEC4c-KZB6lYo0h"/>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-zinc-100">
+<span class="w-2 h-2 rounded-full bg-score-medium"></span>
+<span class="font-display font-bold text-sm">75</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-base leading-tight line-clamp-2">Tênis Esportivo Ultra Conforto</h3>
+<span class="material-symbols-outlined text-score-medium text-[20px] bg-score-medium/10 rounded-full p-1 ml-2 flex-shrink-0 transform rotate-45">arrow_forward</span>
+</div>
+<p class="text-xs text-text-muted mb-4">Moda Masculina</p>
+<div class="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-3">
+<select class="w-[120px] text-xs font-medium py-1.5 px-2 rounded-md border-transparent bg-status-published text-zinc-800 focus:ring-primary focus:border-primary cursor-pointer" onclick="event.stopPropagation()">
+<option value="planejando">Planejando</option>
+<option value="gravando">Gravando</option>
+<option selected="" value="publicado">Publicado</option>
+</select>
+<div class="w-16 h-6">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 64 24">
+<path class="sparkline-path" d="M0,10 L20,12 L40,11 L64,10" fill="none" stroke="#FFD54F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+</body></html>

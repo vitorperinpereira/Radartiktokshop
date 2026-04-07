@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Radar - Domine o TikTok Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#F9F9F6",
+              "surface-tint": "#FF0050",
+              "surface-container-highest": "#E5E5E5",
+              "on-error": "#FFFFFF",
+              "error-container": "#FFDAD6",
+              "background": "#F9F9F6",
+              "on-primary": "#FFFFFF",
+              "outline": "#E5E5E5",
+              "primary-container": "#FFE5ED",
+              "surface-container": "#F4F4F1",
+              "secondary-container": "#E0FDFF",
+              "secondary": "#00F2FE",
+              "on-secondary": "#121212",
+              "error": "#BA1A1A",
+              "primary-fixed": "#FFD9E2",
+              "on-tertiary-fixed": "#002110",
+              "outline-variant": "#F4F4F1",
+              "surface-container-high": "#EFEFEF",
+              "inverse-surface": "#230f15",
+              "tertiary": "#00E676",
+              "surface-container-lowest": "#FFFFFF",
+              "on-tertiary": "#FFFFFF",
+              "on-surface-variant": "#8A8A8E",
+              "on-error-container": "#93000A",
+              "tertiary-container": "#D9FEEB",
+              "on-surface": "#121212",
+              "on-primary-fixed-variant": "#92002C",
+              "on-primary-container": "#FF0050",
+              "secondary-fixed": "#D1F5FF",
+              "on-secondary-container": "#00B4BD",
+              "tertiary-fixed": "#9CF6C1",
+              "secondary-fixed-dim": "#A2EBFF",
+              "on-tertiary-container": "#008544",
+              "tertiary-fixed-dim": "#80D9A7",
+              "on-primary-fixed": "#3E0010",
+              "on-background": "#121212",
+              "primary": "#FF0050",
+              "primary-fixed-dim": "#FFB2C8",
+              "surface-dim": "#F9F9F6",
+              "on-tertiary-fixed-variant": "#00522D",
+              "inverse-on-surface": "#F9F9F6",
+              "surface-bright": "#FFFFFF",
+              "inverse-primary": "#FFB2C8",
+              "on-secondary-fixed": "#001F24",
+              "surface": "#FFFFFF",
+              "surface-variant": "#F4F4F1",
+              "on-secondary-fixed-variant": "#004E59"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .pulse-bg {
+        background: radial-gradient(circle at 50% 50%, rgba(255, 0, 80, 0.05) 0%, transparent 70%);
+      }
+      .gauge-circle {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 25;
+        transition: stroke-dashoffset 1s ease-in-out;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-primary-container selection:text-primary overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="text-2xl font-black tracking-tighter text-[#FF0050]">Radar</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#FF0050] font-bold border-b-2 border-[#FF0050] pb-1" href="#">Radar</a>
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:text-[#FF0050] transition-colors" href="#">Raio-X</a>
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:text-[#FF0050] transition-colors" href="#">Laboratório</a>
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:text-[#FF0050] transition-colors" href="#">Preços</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-zinc-600 font-medium hover:text-primary transition-colors">Entrar</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:scale-105 transition-transform duration-200 shadow-md">Começar Agora</button>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center px-6 pulse-bg overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8 relative z-10">
+<div class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-3 py-1 rounded-md text-sm font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        Estúdio do Criador Elite
+                    </div>
+<h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight text-on-background">
+                        Domine o TikTok Shop com <span class="text-primary italic">Dados</span>, Não Sorte.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        A única inteligência competitiva desenhada para afiliados que buscam escala real. Identifique tendências antes que saturem e replique os ângulos que vendem.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-black text-lg hover:scale-105 transition-all shadow-lg flex items-center justify-center gap-2">
+                            Começar Agora
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-highest/50 backdrop-blur-md text-on-surface px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-highest transition-all border border-outline flex items-center justify-center gap-2">
+                            Ver Demonstração
+                            <span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</div>
+<div class="relative lg:block hidden">
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative p-2 rounded-2xl bg-gradient-to-br from-primary via-secondary to-tertiary p-[2px]">
+<div class="bg-surface rounded-2xl p-6 shadow-2xl space-y-6">
+<div class="flex justify-between items-center border-b border-outline pb-4">
+<div class="flex gap-2 items-center">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase">Tendência Semanal</p>
+<p class="font-black text-lg">Cremes Coreanos</p>
+</div>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-md text-xs font-black">
+                                    +124% ALTA
+                                </div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Conversão Média</p>
+<p class="text-2xl font-black text-on-surface">4.2%</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Comissão Estimada</p>
+<p class="text-2xl font-black text-tertiary">R$ 12k+</p>
+</div>
+</div>
+<div class="relative h-32 w-full bg-surface-container-high rounded-xl overflow-hidden flex items-end px-2 gap-1">
+<div class="w-full bg-primary h-[30%] rounded-t-sm opacity-20"></div>
+<div class="w-full bg-primary h-[45%] rounded-t-sm opacity-40"></div>
+<div class="w-full bg-primary h-[40%] rounded-t-sm opacity-60"></div>
+<div class="w-full bg-primary h-[70%] rounded-t-sm opacity-80"></div>
+<div class="w-full bg-primary h-[90%] rounded-t-sm"></div>
+<div class="w-full bg-primary h-[85%] rounded-t-sm"></div>
+<div class="w-full bg-primary h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-3xl mb-16">
+<h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-6">O problema de ser um afiliado hoje</h2>
+<p class="text-lg text-on-surface-variant">Vender no TikTok Shop parece fácil, mas o mercado amador está sendo varrido por quem tem as ferramentas certas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group bg-surface p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all hover:-translate-y-2 border-transparent hover:border-outline-variant border-2">
+<div class="w-14 h-14 bg-error-container text-error rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">psychology_alt</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Incerteza Total</h3>
+<p class="text-on-surface-variant">Gastar dias gravando vídeos para produtos que ninguém quer comprar ou que o algoritmo já ignorou.</p>
+</div>
+<div class="group bg-surface p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all hover:-translate-y-2 border-transparent hover:border-outline-variant border-2">
+<div class="w-14 h-14 bg-error-container text-error rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">timer_off</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Saturação Relâmpago</h3>
+<p class="text-on-surface-variant">Chegar tarde demais em uma tendência e ver seu alcance despencar enquanto o custo de estoque dos parceiros sobe.</p>
+</div>
+<div class="group bg-surface p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all hover:-translate-y-2 border-transparent hover:border-outline-variant border-2">
+<div class="w-14 h-14 bg-error-container text-error rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">block</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Bloqueio Criativo</h3>
+<p class="text-on-surface-variant">Saber que o produto é bom, mas não ter ideia de qual gancho usar para prender a atenção nos primeiros 3 segundos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section - The Elite Toolkit -->
+<section class="py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">Elite Toolkit</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Deixe de ser um criador de conteúdo e torne-se uma máquina de vendas orientada a dados.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[600px]">
+<!-- Radar Semanal -->
+<div class="md:col-span-7 bg-surface border-2 border-outline-variant rounded-2xl p-8 relative overflow-hidden group">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<span class="bg-secondary/10 text-on-secondary-container px-3 py-1 rounded-md text-xs font-black uppercase tracking-widest mb-4 inline-block">Módulo 01</span>
+<h3 class="text-3xl font-black mb-4">Radar Semanal</h3>
+<p class="text-on-surface-variant max-w-sm mb-6">Curadoria feita por humanos e IA dos 10 produtos com maior potencial de explosão na semana.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Análise de Volume de Busca
+                                    </li>
+<li class="flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Pontuação de Saturação
+                                    </li>
+</ul>
+</div>
+<div class="mt-8">
+<img class="w-full h-48 object-cover rounded-xl shadow-inner grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Abstract visualization of data trends and social media metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXmEw_Qm2kLA9pzH-K_WulrhjaLRwVJHYOice0iIF0SW-yfSfCL8xo7HqCwRyWcdsPydioP1n9Rb474yw2iIe0p8HGmkrr23e00BaxaVuWZWLJq0nO8V0r9yRkES2JYQ2ZNC8XOyPPGRR8H8vCXlOvwCgG4jiSE6UZAoAG1loyZEXwtae5h_1Ok6hVDMHjcDI766wFjYnyNmLuYD2_aC-0uit6mmLnQ24mG59Yd8EjwxBpO8F507grmdnt-kgLeWjCoGvN9A4GddT-"/>
+</div>
+</div>
+</div>
+<!-- Raio-X do Produto -->
+<div class="md:col-span-5 bg-primary text-on-primary rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+<div class="relative z-10">
+<span class="bg-white/20 text-white px-3 py-1 rounded-md text-xs font-black uppercase tracking-widest mb-4 inline-block">Módulo 02</span>
+<h3 class="text-3xl font-black mb-4">Raio-X do Produto</h3>
+<p class="text-primary-container leading-relaxed">Vá além do preço. Saiba exatamente qual a margem real, tempo de entrega e reputação do fornecedor.</p>
+</div>
+<div class="mt-8 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold opacity-70">Supply Health</span>
+<span class="text-xs font-bold">98/100</span>
+</div>
+<div class="w-full bg-white/20 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary w-[98%] h-full"></div>
+</div>
+</div>
+</div>
+<!-- Laboratório de Ângulos -->
+<div class="md:col-span-12 bg-surface-container border-2 border-outline-variant rounded-2xl p-8 flex flex-col md:flex-row items-center gap-12 group">
+<div class="flex-1 order-2 md:order-1">
+<span class="bg-tertiary/10 text-on-tertiary-container px-3 py-1 rounded-md text-xs font-black uppercase tracking-widest mb-4 inline-block">Módulo 03</span>
+<h3 class="text-3xl font-black mb-4">Laboratório de Ângulos</h3>
+<p class="text-on-surface-variant text-lg mb-8">Não apenas o que vender, mas COMO vender. Receba roteiros prontos e ganchos validados para cada produto do Radar.</p>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-white rounded-full text-xs font-bold shadow-sm border border-outline">Gancho: Problem-First</span>
+<span class="px-4 py-2 bg-white rounded-full text-xs font-bold shadow-sm border border-outline">Ângulo: Review Honesto</span>
+<span class="px-4 py-2 bg-white rounded-full text-xs font-bold shadow-sm border border-outline">Gancho: ASMR Unboxing</span>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2 w-full">
+<div class="aspect-video bg-zinc-900 rounded-2xl relative overflow-hidden flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50" data-alt="Creative process workspace with lights and microphone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUBQgi0gZGuJfnpaQR_FhCIx6tVOgEWtv7a4qfFcfj9MSpQayU9Za2Usxq-ZRs3PX9h7qevftJF3Fzzh0Ib3gzA_GoM-OFYsEkQoe0WbSMtG0-X2h5KbH0xky9sV7pjDi-1aM_pXp_OmGj612d_Cs9RjnA7Cmm0H8Nifh3xtMkQMiQaHRqb1oVmhCpX2D1kZMdM85F7tO2nKD2VLQxm55_xlqvEH6dtMc3HGHzQio4ZJFDL9Z0n3VpLlQBG4GESx1ZnaY2TRICoFV"/>
+<div class="relative z-10 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">Escolha seu Nível de Jogo</h2>
+<p class="text-on-surface-variant">Planos que acompanham sua jornada de criador.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+<!-- Básico -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline space-y-8">
+<div>
+<h3 class="text-xl font-bold mb-2">Plano Básico</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-on-surface">R$49</span>
+<span class="text-on-surface-variant font-medium">/mês</span>
+</div>
+</div>
+<ul class="space-y-4 border-t border-outline pt-8">
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Radar Semanal (Top 5)
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Suporte via Email
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Acesso ao Dashboard
+                            </li>
+</ul>
+<button class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Assinar Agora</button>
+</div>
+<!-- Criador Pro -->
+<div class="bg-surface p-8 rounded-2xl shadow-2xl border-4 border-primary space-y-8 relative transform md:scale-105 z-10">
+<div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                            Mais Popular
+                        </div>
+<div>
+<h3 class="text-xl font-bold mb-2">Plano Criador Pro</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-black text-on-surface">R$99</span>
+<span class="text-on-surface-variant font-medium">/mês</span>
+</div>
+</div>
+<ul class="space-y-4 border-t border-outline pt-8">
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Radar Semanal Completo (Top 10)
+                            </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Laboratório de Ângulos (Scripts)
+                            </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Raio-X do Fornecedor
+                            </li>
+<li class="flex items-center gap-3 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Comunidade Exclusiva Discord
+                            </li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-primary text-on-primary font-black text-lg hover:shadow-xl hover:scale-[1.02] transition-all shadow-md">Começar Agora</button>
+</div>
+<!-- Agência -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline space-y-8">
+<div>
+<h3 class="text-xl font-bold mb-2">Plano Agência</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-on-surface">R$249</span>
+<span class="text-on-surface-variant font-medium">/mês</span>
+</div>
+</div>
+<ul class="space-y-4 border-t border-outline pt-8">
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Até 5 Contas de Criador
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Relatórios Customizados
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                API de Dados TikTrends
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check</span>
+                                Gerente de Conta Dedicado
+                            </li>
+</ul>
+<button class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Falar com Consultor</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">Chega de tentar adivinhar o que vai vender.</h2>
+<p class="text-xl text-on-surface-variant mb-12">Junte-se a mais de 2.500 afiliados que utilizam o Radar para escalar suas operações no TikTok Shop.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<button class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl">Assinar Radar Agora</button>
+<p class="text-sm font-bold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+                        Cancelamento a qualquer momento
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-zinc-50 dark:bg-zinc-900 border-t-2 border-zinc-100 dark:border-zinc-800">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-6 gap-8">
+<div class="flex flex-col gap-4 items-center md:items-start">
+<div class="text-xl font-black text-zinc-900 dark:text-white">Radar</div>
+<p class="font-['Inter'] text-sm text-zinc-500">© 2024 Radar. O pulso do TikTok Shop.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 hover:text-[#FF0050] transition-colors text-sm hover:underline" href="#">Termos</a>
+<a class="text-zinc-500 hover:text-[#FF0050] transition-colors text-sm hover:underline" href="#">Privacidade</a>
+<a class="text-zinc-500 hover:text-[#FF0050] transition-colors text-sm hover:underline" href="#">Suporte</a>
+<a class="text-zinc-500 hover:text-[#FF0050] transition-colors text-sm hover:underline" href="#">Afiliados</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">forum</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

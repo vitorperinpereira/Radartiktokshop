@@ -1,0 +1,21 @@
+{
+  "name": "creator-product-radar",
+  "private": true,
+  "scripts": {
+    "bootstrap": "python -m uv sync --cache-dir .uv-cache --all-groups",
+    "cli": "python -m uv run --cache-dir .uv-cache --frozen --no-sync python -m bin.radar",
+    "api": "python -m uv run --cache-dir .uv-cache --frozen --no-sync uvicorn apps.api.main:app --reload --host 0.0.0.0 --port 8000",
+    "dashboard": "python -m uv run --cache-dir .uv-cache --frozen --no-sync python -m bin.radar serve-dashboard",
+    "lint": "python -m uv run --cache-dir .uv-cache --frozen --no-sync ruff check apps bin services scoring ranking ingestion tests",
+    "format": "uv run ruff format .",
+    "typecheck": "python -m uv run --cache-dir .uv-cache --frozen --no-sync mypy apps bin services scoring ranking ingestion tests",
+    "test": "python -m uv run --cache-dir .uv-cache --frozen --no-sync pytest -q",
+    "build": "python -m uv run --cache-dir .uv-cache --frozen --no-sync python -m compileall apps services bin scoring ranking ingestion",
+    "db:up": "docker compose up -d db",
+    "db:down": "docker compose down",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:preview": "cd frontend && npm run preview",
+    "db:migrate": "python -m uv run --cache-dir .uv-cache --frozen --no-sync python -m bin.radar db-upgrade"
+  }
+}

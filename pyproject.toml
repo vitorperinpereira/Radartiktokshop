@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "creator-product-radar"
+version = "0.1.0"
+description = "CLI-first modular monolith scaffold for Creator Product Radar."
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.14,<2.0",
+  "fastapi>=0.115,<1.0",
+  "httpx>=0.27,<1.0",
+  "jinja2>=3.1,<4.0",
+  "langgraph>=0.2,<1.0",
+  "openai>=1.30,<2.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "pytrends>=4.9,<5.0",
+  "python-dotenv>=1.0,<2.0",
+  "sqlalchemy>=2.0,<3.0",
+  "streamlit>=1.39,<2.0",
+  "uvicorn[standard]>=0.30,<1.0",
+]
+
+[project.scripts]
+radar = "bin.radar:main"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.11,<2.0",
+  "pytest>=8.3,<9.0",
+  "pytest-asyncio>=0.23,<1.0",
+  "ruff>=0.6,<1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["apps", "bin", "services", "scoring", "ranking", "ingestion"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+filterwarnings = [
+  "ignore:Core Pydantic V1 functionality isn't compatible with Python 3\\.14 or greater\\.:UserWarning:langchain_core\\._api\\.deprecation",
+  "ignore:'asyncio\\.iscoroutinefunction' is deprecated and slated for removal in Python 3\\.16; use inspect\\.iscoroutinefunction\\(\\) instead:DeprecationWarning:langgraph\\._internal\\._runnable",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+files = ["apps", "bin", "services", "scoring", "ranking", "ingestion", "tests"]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+disable_error_code = [
+  "arg-type",
+  "attr-defined",
+  "call-overload",
+  "no-untyped-def",
+  "no-untyped-call",
+  "redundant-cast",
+  "return-value",
+  "type-arg",
+]
+
+[[tool.mypy.overrides]]
+module = ["tests.*", "tests.unit.*", "tests.integration.*", "tests.smoke.*"]
+ignore_errors = true

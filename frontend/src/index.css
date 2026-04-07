@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Semicircle Gauge CSS */
+.pulse-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 0, 80, 0.05) 0%, transparent 70%);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.gauge-container {
+  position: relative;
+  width: 240px;
+  height: 120px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.gauge-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 270deg,
+    #00E676 0deg 60deg,
+    #FFD54F 60deg 120deg,
+    #FF0050 120deg 180deg,
+    transparent 180deg 360deg
+  );
+  border: 20px solid transparent;
+  box-sizing: border-box;
+  -webkit-mask: radial-gradient(transparent 55%, black 56%);
+  mask: radial-gradient(transparent 55%, black 56%);
+}
+.gauge-needle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 100px;
+  background-color: #121212;
+  transform-origin: bottom center;
+  transform: rotate(-60deg) translateX(-50%);
+  border-radius: 4px;
+  z-index: 10;
+}
+.dark .gauge-needle {
+  background-color: #f8f5f6;
+}
+.gauge-needle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: #121212;
+  border-radius: 50%;
+}
+.dark .gauge-needle::after {
+  background-color: #f8f5f6;
+}
+
+.gauge-circle {
+  transition: stroke-dasharray 1s ease-out;
+}
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

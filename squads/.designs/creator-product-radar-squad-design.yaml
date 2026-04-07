@@ -1,0 +1,256 @@
+squad:
+  name: creator-product-radar
+  description: Squad focused on TikTok Shop affiliate product intelligence, scoring, ingestion, and creator-facing reporting.
+  domain: creator-product-radar
+
+analysis:
+  entities:
+    - Product
+    - ProductSnapshot
+    - ProductSignal
+    - ProductScore
+    - Creator
+    - ContentAngle
+    - WeeklyReport
+    - IngestionJob
+    - SourceAdapter
+    - OpportunityScore
+  workflows:
+    - weekly-opportunity-ranking
+    - source-onboarding
+    - score-calibration
+    - report-generation
+    - dashboard-review
+  integrations:
+    - CSV imports
+    - JSON snapshots
+    - Mock connectors
+    - TikTok Shop adapters
+    - PostgreSQL
+    - LangGraph
+    - FastAPI
+    - Streamlit or simple dashboard
+  stakeholders:
+    - TikTok Shop affiliate creator
+    - Internal creator operations
+    - Creator agency manager
+    - Product owner
+    - Data and AI engineer
+
+recommendations:
+  agents:
+    - id: commerce-signal-analyst
+      role: Defines product opportunity signals, saturation logic, creator accessibility rules, and ranking rationale for affiliate commerce.
+      commands:
+        - define-signal-catalog
+        - audit-saturation-logic
+        - review-weekly-opportunity-ranking
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: signal-scoring-architect
+      role: Designs the Creator Opportunity Score, weighting strategy, explainability rules, and calibration flows.
+      commands:
+        - design-opportunity-score
+        - calibrate-score-model
+        - evaluate-agent-contracts
+      confidence: 0.96
+      user_added: false
+      user_modified: false
+    - id: source-governance-engineer
+      role: Structures compliant data ingestion, adapter qualification, rate-limit boundaries, and mock or imported fallback paths.
+      commands:
+        - qualify-data-source
+        - source-failure-drill
+        - review-ingestion-runbook
+      confidence: 0.94
+      user_added: false
+      user_modified: false
+    - id: catalog-normalization-engineer
+      role: Owns product identity, deduplication rules, taxonomy, variant grouping, and canonical snapshot consistency.
+      commands:
+        - maintain-product-ontology
+        - review-deduplication-rules
+        - define-snapshot-contract
+      confidence: 0.93
+      user_added: false
+      user_modified: false
+    - id: creator-content-strategist
+      role: Converts ranked products into creator-ready hooks, report narratives, and dashboard insights.
+      commands:
+        - draft-weekly-report-brief
+        - review-content-angle-output
+        - review-dashboard-insights
+      confidence: 0.92
+      user_added: false
+      user_modified: false
+  tasks:
+    - name: define-signal-catalog
+      agent: commerce-signal-analyst
+      entrada:
+        - market_questions
+        - source_constraints
+        - stakeholder_goals
+      saida:
+        - signal_catalog
+        - signal_priorities
+        - gap_notes
+      confidence: 0.94
+      checklist:
+        - Extract ranking questions from the product brief
+        - Map each question to objective product signals
+        - Separate mandatory signals from optional enrichments
+        - Flag gaps that require mock or pluggable adapters
+    - name: audit-saturation-logic
+      agent: commerce-signal-analyst
+      entrada:
+        - saturation_inputs
+        - creative_fatigue_signals
+        - benchmarking_window
+      saida:
+        - saturation_rules
+        - risk_flags
+        - calibration_notes
+      confidence: 0.9
+      checklist:
+        - Define early, peak, and saturated stages
+        - Map measurable fatigue indicators
+        - Align saturation output with score penalties
+        - Document edge cases for fast-moving categories
+    - name: design-opportunity-score
+      agent: signal-scoring-architect
+      entrada:
+        - scoring_dimensions
+        - weight_targets
+        - classification_rules
+      saida:
+        - score_formula
+        - normalization_rules
+        - explanation_contract
+      confidence: 0.96
+      checklist:
+        - Confirm scoring dimensions and ranges
+        - Define normalization and weighting logic
+        - Map explanation fields required by API and dashboard
+        - Tie score bands to product recommendations
+    - name: calibrate-score-model
+      agent: signal-scoring-architect
+      entrada:
+        - weights
+        - backtest_samples
+        - business_priorities
+      saida:
+        - calibrated_weights
+        - tradeoffs
+        - admin_controls
+      confidence: 0.91
+      checklist:
+        - Evaluate current weights against target outcomes
+        - Record tradeoffs between virality and accessibility
+        - Propose admin-tunable configuration surface
+        - Define recalibration cadence
+    - name: qualify-data-source
+      agent: source-governance-engineer
+      entrada:
+        - source_list
+        - compliance_constraints
+        - mvp_data_strategy
+      saida:
+        - source_decision
+        - adapter_contracts
+        - fallback_modes
+      confidence: 0.95
+      checklist:
+        - Separate official, mock, and imported data paths
+        - Define adapter interfaces and payload schemas
+        - Document rate-limit and compliance boundaries
+        - Specify graceful degradation rules
+    - name: source-failure-drill
+      agent: source-governance-engineer
+      entrada:
+        - source_inventory
+        - fallback_inputs
+        - run_expectations
+      saida:
+        - failure_scenarios
+        - fallback_runbook
+        - resilience_gaps
+      confidence: 0.93
+      checklist:
+        - Simulate connector unavailability
+        - Verify CSV, JSON, and mock fallbacks still work
+        - Record degraded-mode expectations
+        - List fixes required before production connectors
+    - name: maintain-product-ontology
+      agent: catalog-normalization-engineer
+      entrada:
+        - raw_catalog_fields
+        - variant_patterns
+        - category_rules
+      saida:
+        - canonical_product_model
+        - deduplication_rules
+        - taxonomy_decisions
+      confidence: 0.94
+      checklist:
+        - Define canonical product identity rules
+        - Specify alias and variant grouping behavior
+        - Document category taxonomy and normalization steps
+        - Align snapshot fields with downstream scoring
+    - name: evaluate-agent-contracts
+      agent: signal-scoring-architect
+      entrada:
+        - agent_outputs
+        - json_schema_rules
+        - confidence_expectations
+      saida:
+        - contract_gaps
+        - schema_updates
+        - evaluation_notes
+      confidence: 0.9
+      checklist:
+        - Validate structured JSON output for each runtime agent
+        - Check confidence ranges and fallback behavior
+        - Reject vague explanations or missing evidence
+        - Align contracts with API persistence needs
+    - name: draft-weekly-report-brief
+      agent: creator-content-strategist
+      entrada:
+        - ranking_fields
+        - audience_segments
+        - report_goals
+      saida:
+        - report_outline
+        - insight_blocks
+        - weekly_narrative
+      confidence: 0.9
+      checklist:
+        - Define the structure of the weekly ranking report
+        - Separate operator and creator-facing insights
+        - Specify what must be exported versus displayed
+        - Keep justifications concise and actionable
+    - name: review-content-angle-output
+      agent: creator-content-strategist
+      entrada:
+        - product_profile
+        - opportunity_score
+        - risk_flags
+      saida:
+        - hooks
+        - content_angles
+        - short_script_briefs
+      confidence: 0.92
+      checklist:
+        - Review the product signals and constraints
+        - Produce hooks for small and mid-sized creators
+        - Tie each angle to a concrete product trigger
+        - Flag claims that need compliance review
+  template: basic
+  config_mode: extend
+
+metadata:
+  created_at: "2026-03-11T22:00:00-03:00"
+  source_docs:
+    - "./docs/prompt tiktokshop.md"
+  user_adjustments: 0
+  overall_confidence: 0.94

@@ -1,0 +1,66 @@
+
+
+# Environment & Secrets (AIOX)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Dependencies (AIOX)
+node_modules/
+node_modules
+.venv/
+.uv-cache/
+.tmp/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+pytest-cache-files-*/
+
+# Build & Logs (AIOX)
+dist/
+build/
+*.log
+logs/
+.coverage
+htmlcov/
+frontend/dist/
+frontend/node_modules/
+frontend/.env
+frontend/*.timestamp-*.mjs
+
+# IDE & OS (AIOX)
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# AIOX Local (AIOX)
+.aiox-core/local/
+.claude/settings.local.json
+.aiox/install-log.txt
+
+# Python app local files
+.streamlit/secrets.toml
+
+# Local DB & debug artifacts
+*.db
+debug_*.json
+
+# Media cache
+media_cache/
+
+# Temp directories (pytest/OS)
+tmp*/
+
+# Nested app builds (frontend/website have own repos)
+apps/frontend/
+apps/website/
+apps/frontend/.git/
+apps/frontend/node_modules/
+apps/frontend/.next/
+apps/website/.git/
+apps/website/node_modules/
+apps/website/.next/

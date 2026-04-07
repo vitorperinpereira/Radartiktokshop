@@ -1,0 +1,303 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Estúdio do Criador - Raio-X do Produto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f90653",
+          "background-light": "#f8f5f6",
+          "background-dark": "#230f15",
+          "surface": "#ffffff",
+          "surface-dark": "#31151d",
+          "text-main": "#121212",
+          "text-muted": "#8A8A8E",
+          "success": "#00E676",
+          "warning": "#FFD54F",
+          "danger": "#FF0050",
+          "accent": "#00F2FE",
+        },
+        fontFamily: {
+          "display": ["Inter", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "md": "0.5rem",
+          "lg": "1rem", // 16px
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        boxShadow: {
+          "soft": "0 4px 24px rgba(0,0,0,0.04)",
+          "hover": "0 8px 32px rgba(0,0,0,0.08)",
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Semicircle Gauge CSS */
+  .gauge-container {
+    position: relative;
+    width: 240px;
+    height: 120px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .gauge-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 270deg,
+      #00E676 0deg 60deg,
+      #FFD54F 60deg 120deg,
+      #FF0050 120deg 180deg,
+      transparent 180deg 360deg
+    );
+    border: 20px solid transparent;
+    box-sizing: border-box;
+    -webkit-mask: radial-gradient(transparent 55%, black 56%);
+    mask: radial-gradient(transparent 55%, black 56%);
+  }
+  .gauge-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 100px;
+    background-color: #121212;
+    transform-origin: bottom center;
+    transform: rotate(-60deg) translateX(-50%); /* Adjust rotation for needle position (-90 to +90) */
+    border-radius: 4px;
+    z-index: 10;
+  }
+  .dark .gauge-needle {
+    background-color: #f8f5f6;
+  }
+  .gauge-needle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: #121212;
+    border-radius: 50%;
+  }
+  .dark .gauge-needle::after {
+    background-color: #f8f5f6;
+  }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 min-h-screen flex font-display antialiased">
+<!-- Sidebar (Hidden on mobile, visible on lg screens) -->
+<aside class="hidden lg:flex w-64 flex-col bg-surface dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 h-screen sticky top-0">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary/10 text-primary p-2 rounded-xl">
+<span class="material-symbols-outlined text-3xl" style="">movie_edit</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight" style="">Radar</h1>
+<p class="text-primary text-sm font-medium" style=""><h1 class="text-text-main text-base font-bold leading-tight tracking-tight cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; letter-spacing: -0.025em; --tw-text-opacity: 1; color: rgb(18, 18, 18); outline: none !important;">TikTok Shop</h1></p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-main dark:hover:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#" style="">
+<span class="material-symbols-outlined" style="">radar</span>
+<span class="font-medium text-sm" style="">Radar Semanal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-lg font-medium text-sm transition-colors" href="#" style="">
+<span class="material-symbols-outlined fill-current" style="">document_scanner</span>
+<span class="" style="">Raio-X do Produto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-main dark:hover:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#" style="">
+<span class="material-symbols-outlined" style="">science</span>
+<span class="font-medium text-sm" style="">Laboratório de Ângulos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-main dark:hover:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#" style="">
+<span class="material-symbols-outlined" style="">warehouse</span>
+<span class="font-medium text-sm" style="">Minha Garagem</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-h-screen max-w-[1200px] mx-auto w-full pb-24 md:pb-8 relative">
+<!-- Mobile Header -->
+<header class="lg:hidden flex items-center justify-between p-4 bg-surface dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 sticky top-0 z-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="">movie_edit</span>
+<span class="font-bold text-lg" style="">Estúdio do Criador</span>
+</div>
+<button class="text-text-main dark:text-white p-2" style="">
+<span class="material-symbols-outlined" style="">menu</span>
+</button>
+</header>
+<!-- Top Navigation / Breadcrumb -->
+<div class="px-4 py-6 md:px-8 flex items-center gap-2 text-sm text-text-muted">
+<a class="hover:text-primary flex items-center gap-1 transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[18px]" style="">arrow_back</span>
+        Voltar ao Radar
+      </a>
+</div>
+<!-- Page Header -->
+<div class="px-4 md:px-8 mb-8">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div class="flex gap-4 items-start">
+<div class="w-20 h-20 rounded-lg bg-gray-200 dark:bg-gray-800 flex-shrink-0 overflow-hidden shadow-sm">
+<img alt="Anel de luz LED circular branco com tripé" class="w-full h-full object-cover" data-alt="Anel de luz LED para celular" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHlqNXwhusxdEqtuEbIxV1drz3KxhX145tGHlrVT7DXCX1lLwO_D96pmdGshsOqSf48zQYGi2GqefZAj4MPDT8nBZnRuVNDkJZHT_P8AC2Vcrl6IW3r9IJ1w0kOdnUUug7SjbL71u5CvFY2uiFmogifi0He34JjOowdFeM8l_Q7UeRkqercULOF78DkuhhsR0Rc1LrCoiK_aaPm89E0S5V2LToA7TeJmK4LBJMoO7AOoTyA5ctF-EzDb9CtgtovwZX_EbIxeGReXvK" style="">
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-gray-100 dark:bg-gray-800 text-text-muted text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide" style="">Eletrônicos</span>
+<span class="flex items-center text-xs font-medium text-success bg-success/10 px-2 py-1 rounded-full gap-1" style="">
+<span class="material-symbols-outlined text-[14px]" style="">trending_up</span>
+                Em Alta
+              </span>
+</div>
+<h2 class="text-2xl md:text-3xl font-bold text-text-main dark:text-white leading-tight mb-2" style="">Anel de Luz LED para Celular</h2>
+<p class="text-text-muted text-sm max-w-xl" style="">Iluminação portátil perfeita para criadores de conteúdo, streamers e maquiadores. Alta demanda orgânica identificada nos últimos 7 dias.</p>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 hidden md:flex">
+<div class="text-sm font-medium text-text-muted mb-1" style="">Opportunity Score</div>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-success" style="">92</span>
+<span class="text-text-muted font-medium" style="">/100</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Two Column Layout -->
+<div class="px-4 md:px-8 flex flex-col lg:flex-row gap-6 lg:gap-8 flex-1">
+<!-- Left Column: Opportunity Score Matrix (60%) -->
+<div class="w-full lg:w-3/5 flex flex-col gap-6">
+<h3 class="text-lg font-bold flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" style="">grid_view</span>
+          Métricas de Oportunidade
+        </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Metric Card 1 -->
+<div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-[150px] transition-all hover:shadow-hover hover:-translate-y-1">
+<div class="flex items-center justify-between text-text-muted mb-2">
+<span class="text-sm font-medium uppercase tracking-wider" style="">Volume de Buscas</span>
+<span class="material-symbols-outlined text-gray-400" style="">search</span>
+</div>
+<div>
+<div class="text-3xl font-black text-text-main dark:text-white" style="">Alta</div>
+<div class="text-sm text-success flex items-center gap-1 mt-1" style="">
+<span class="material-symbols-outlined text-[16px]" style="">arrow_upward</span>
+                +45% esta semana
+              </div>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-[150px] transition-all hover:shadow-hover hover:-translate-y-1">
+<div class="flex items-center justify-between text-text-muted mb-2">
+<span class="text-sm font-medium uppercase tracking-wider" style="">Comissões</span>
+<span class="material-symbols-outlined text-gray-400" style="">payments</span>
+</div>
+<div>
+<div class="text-3xl font-black text-text-main dark:text-white" style="">20%</div>
+<div class="text-sm text-text-muted mt-1" style="">
+                Aprox. R$ 15,00 por venda
+              </div>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-[150px] transition-all hover:shadow-hover hover:-translate-y-1">
+<div class="flex items-center justify-between text-text-muted mb-2">
+<span class="text-sm font-medium uppercase tracking-wider" style="">Concorrência</span>
+<span class="material-symbols-outlined text-gray-400" style="">group</span>
+</div>
+<div>
+<div class="text-3xl font-black text-success" style="">Baixa</div>
+<div class="text-sm text-text-muted mt-1" style="">
+                Poucos vídeos ranqueados
+              </div>
+</div>
+</div>
+<!-- Metric Card 4 -->
+<div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-[150px] transition-all hover:shadow-hover hover:-translate-y-1">
+<div class="flex items-center justify-between text-text-muted mb-2">
+<span class="text-sm font-medium uppercase tracking-wider" style="">Engajamento</span>
+<span class="material-symbols-outlined text-gray-400" style="">favorite</span>
+</div>
+<div>
+<div class="text-3xl font-black text-text-main dark:text-white" style="">Muito Alto</div>
+<div class="text-sm text-success flex items-center gap-1 mt-1" style="">
+<span class="material-symbols-outlined text-[16px]" style="">local_fire_department</span>
+                Viralizando agora
+              </div>
+</div>
+</div>
+</div>
+<!-- Insights section (Optional, adds to the analytical feel) -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-lg p-5 border border-primary/10 mt-2">
+<h4 class="font-semibold text-text-main dark:text-white flex items-center gap-2 mb-2" style="">
+<span class="material-symbols-outlined text-primary text-[20px]" style="">lightbulb</span>
+            Insight do Radar
+          </h4>
+<p class="text-sm text-text-muted leading-relaxed" style="">
+            Este produto está no "ponto doce". Alta demanda orgânica e poucos criadores produzindo conteúdo de qualidade. Ideal para vídeos tutoriais ou "arrume-se comigo".
+          </p>
+</div>
+</div>
+<!-- Right Column: Saturation & CTA (40%) -->
+<div class="w-full lg:w-2/5 flex flex-col gap-6">
+<!-- Saturation Card -->
+<div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-soft border border-gray-100 dark:border-gray-800 flex-1 flex flex-col items-center justify-center text-center">
+<h3 class="text-lg font-bold w-full text-left flex items-center gap-2 mb-8" style="">
+<span class="material-symbols-outlined text-primary" style="">speed</span>
+            Termômetro de Saturação
+          </h3>
+<div aria-label="Nível de saturação: Baixo Risco" class="gauge-container mb-6">
+<div class="gauge-background"></div>
+<div class="gauge-needle"></div>
+</div>
+<div class="flex justify-between w-[240px] text-xs font-semibold uppercase text-text-muted tracking-wide mb-6">
+<span class="text-success" style="">Baixo</span>
+<span class="text-warning" style="">Médio</span>
+<span class="text-danger" style="">Saturado</span>
+</div>
+<div class="inline-flex items-center gap-2 bg-success/10 text-success px-4 py-2 rounded-full font-bold text-sm" style="">
+<span class="material-symbols-outlined text-[18px]" style="">check_circle</span>
+            Baixo Risco de Saturação
+          </div>
+<p class="text-sm text-text-muted mt-4 max-w-[280px]" style="">
+            O mercado ainda tem muito espaço para novos vídeos deste produto. Aproveite a oportunidade agora.
+          </p>
+</div>
+<!-- Desktop CTA (Hidden on mobile) -->
+<div class="hidden md:block">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2 text-base" style="">
+<span class="material-symbols-outlined" style="">auto_fix_high</span>
+            Gerar Ângulo de Conteúdo
+          </button>
+</div>
+</div>
+</div>
+<!-- Mobile Sticky CTA -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 z-50">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-6 rounded-lg shadow-lg flex items-center justify-center gap-2 text-base transition-transform active:scale-95" style="">
+<span class="material-symbols-outlined" style="">auto_fix_high</span>
+        Gerar Ângulo de Conteúdo
+      </button>
+</div>
+</main>
+</body></html>
